@@ -1,0 +1,36 @@
+﻿@model List<ShowStViewModel>
+
+@{
+    ViewData["Title"] = "All Students";
+}
+
+<h1>All Students</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Father's Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Surname</td>
+                <td>@student.FatherName</td>
+                <td class="align-content-center">
+                    <a asp-action="Delete" asp-route-Id="@student.Id" class="btn btn-danger m-2">Delete</a>
+                    <a asp-action="Update" asp-route-Id="@student.Id" class="btn btn-danger m-2">Update</a>
+                </td>
+            </tr>
+
+            
+        }
+    </tbody>
+</table>

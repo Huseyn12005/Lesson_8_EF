@@ -1,0 +1,43 @@
+﻿@model List<ShowGroupVM>
+
+@{
+    ViewData["Title"] = "Show All Groups";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Teacher Name</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model)
+        {
+            <tr>
+                <td class ="align-content-center">@group.Name</td>
+                <td class ="align-content-center">@group.Code</td>
+
+                @if (group.TeacherName is null)
+                {
+                    <td class ="align-content-center">empty</td>
+                }
+                else
+                {
+                    <td class ="align-content-center">@group.TeacherName</td>
+                }
+
+                <td class="align-content-center">@group.CreatedDate?.ToString("d")</td>
+                <td class="align-content-center">
+                    <a asp-action="Delete" asp-route-Id="@group.Id" class="btn btn-danger m-2">Delete</a>
+                    <a class="btn btn-danger m-2">Update</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

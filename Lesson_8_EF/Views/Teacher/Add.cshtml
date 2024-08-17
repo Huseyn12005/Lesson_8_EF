@@ -1,0 +1,39 @@
+﻿@using Lesson_8_EF.Models.ViewModels.Teacher
+@model TeacherVM
+
+@{
+    ViewData["Title"] = "Add Teacher";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Add" asp-controller="Teacher" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label asp-for="Surname" class="control-label"></label>
+        <input asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label asp-for="FatherName" class="control-label"></label>
+        <input asp-for="FatherName" class="form-control" />
+        <span asp-validation-for="FatherName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label asp-for="Salary" class="control-label"></label>
+        <input asp-for="Salary" class="form-control" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-3">Add Teacher</button>
+    </div>
+</form>
