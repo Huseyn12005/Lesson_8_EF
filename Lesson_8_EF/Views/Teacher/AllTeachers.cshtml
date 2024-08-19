@@ -1,33 +1,38 @@
 ﻿@model List<TeacherVM>
 
+@{
+    ViewData["Title"] = "All Teachers";
+}
 
+<h1 class="my-4 text-center">All Teachers</h1>
 
-<h1>All Teachers</h1>
-
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Father's Name</th>
-            <th>Salary</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var teacher in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle text-center">
+        <thead class="table-dark">
             <tr>
-                <td>@teacher.Name</td>
-                <td>@teacher.Surname</td>
-                <td>@teacher.FatherName</td>
-                <td>@teacher.Salary</td>
-                <td class="align-content-center">
-                    <a asp-action="Delete" asp-route-Id="@teacher.Id" class="btn btn-danger m-2">Delete</a>
-                    <a asp-action="Update" asp-route-Id="@teacher.Id" class="btn btn-danger m-2">Update</a>
-                </td>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Father's Name</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Actions</th>
             </tr>
-
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var teacher in Model)
+            {
+                <tr>
+                    <td>@teacher.Name</td>
+                    <td>@teacher.Surname</td>
+                    <td>@teacher.FateherName</td>
+                    <td>@teacher.Salary</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a asp-action="UpdateTeacher" asp-route-Id="@teacher.Id" class="btn btn-warning me-2">Update</a>
+                            <a asp-action="Delete" asp-route-Id="@teacher.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

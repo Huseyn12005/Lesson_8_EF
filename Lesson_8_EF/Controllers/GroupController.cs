@@ -30,7 +30,7 @@ public class GroupController : Controller
         {
             Name = model.Name,
             Code = model.Code,
-            CreatedDate = DateTime.Now
+            CreateDate = DateTime.Now
         };
 
         await _groupRepo?.AddAsync(group)!;
@@ -51,7 +51,7 @@ public class GroupController : Controller
                 Id = group.Id,
                 Name = group.Name,
                 Code = group.Code,
-                CreatedDate = group.CreatedDate,
+                CreatedDate = group.CreateDate,
                 TeacherName = group?.Teacher?.Name
             };
             groupsVm.Add(newG);

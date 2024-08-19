@@ -1,0 +1,56 @@
+﻿@using Lesson_8_EF.Models.Entities.Concrets
+@model Teacher
+
+@{
+    ViewData["Title"] = "Update Teacher";
+}
+
+<h1 class="my-4 text-center">@ViewData["Title"]</h1>
+
+<form asp-action="UpdateTeacher" asp-controller="Teacher" method="post">
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Field</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>
+                        <input asp-for="Surname" class="form-control" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Father's Name</td>
+                    <td>
+                        <input asp-for="FateherName" class="form-control" />
+                        <span asp-validation-for="FateherName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <td>
+                        <input asp-for="Salary" class="form-control" />
+                        <span asp-validation-for="Salary" class="text-danger"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <a asp-action="Add" asp-controller="Teacher" class="btn btn-secondary me-2">Back</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>

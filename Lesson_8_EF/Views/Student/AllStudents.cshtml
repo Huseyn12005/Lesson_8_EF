@@ -4,33 +4,35 @@
     ViewData["Title"] = "All Students";
 }
 
-<h1>All Students</h1>
+<h1 class="my-4 text-center">All Students</h1>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Father's Name</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var student in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle text-center">
+        <thead class="table-dark">
             <tr>
-                <td>@student.Id</td>
-                <td>@student.Name</td>
-                <td>@student.Surname</td>
-                <td>@student.FatherName</td>
-                <td class="align-content-center">
-                    <a asp-action="Delete" asp-route-Id="@student.Id" class="btn btn-danger m-2">Delete</a>
-                    <a asp-action="Update" asp-route-Id="@student.Id" class="btn btn-danger m-2">Update</a>
-                </td>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Father's Name</th>
+                <th scope="col">Actions</th>
             </tr>
-
-            
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Id</td>
+                    <td>@student.Name</td>
+                    <td>@student.Surname</td>
+                    <td>@student.FateherName</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a asp-action="UpdateStudent" asp-route-Id="@student.Id" class="btn btn-warning me-2">Update</a>
+                            <a asp-action="Delete" asp-route-Id="@student.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

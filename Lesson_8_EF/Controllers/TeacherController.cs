@@ -38,7 +38,7 @@ public class TeacherController : Controller
             {
                 Name = vM.Name,
                 Surname = vM.Surname,
-                FateherName = vM.FatherName,
+                FateherName = vM.FateherName,
                 Salary = vM.Salary,
             };
 
@@ -65,7 +65,7 @@ public class TeacherController : Controller
                 Id = teacher.Id,
                 Name = teacher.Name,
                 Surname = teacher.Surname,
-                FatherName = teacher.FateherName,
+                FateherName = teacher.FateherName,
                 Salary = teacher.Salary,
             };
             teachersV.Add(newT);
@@ -92,23 +92,23 @@ public class TeacherController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Update(int id)
+    public async Task<IActionResult> UpdateTeacher(int id)
     {
         var entity = await _teacherRepo?.GetByIdAsync(id)!;
         return View(entity);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Update(TeacherVM stVM, int id)
+    public async Task<IActionResult> UpdateTeacher(TeacherVM stVM, int id)
     {
 
         var entity = await _teacherRepo?.GetByIdAsync(id)!;
 
         entity.Name = stVM.Name;
         entity.Surname = stVM.Surname;
-        entity.FateherName = stVM.FatherName;
+        entity.FateherName = stVM.FateherName;
         entity.Salary = stVM.Salary;
-        entity.UpdatedDate = DateTime.Now;
+        entity.UpdateDate = DateTime.Now;
 
 
         await _teacherRepo!.UpdateAsync(entity);

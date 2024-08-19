@@ -52,7 +52,7 @@ namespace Lesson_8_EF.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Groups");
+                    b.ToTable("Groups", (string)null);
                 });
 
             modelBuilder.Entity("Lesson_8_EF.Models.Entities.Concrets.Mark", b =>
@@ -87,7 +87,7 @@ namespace Lesson_8_EF.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Marks");
+                    b.ToTable("Marks", (string)null);
                 });
 
             modelBuilder.Entity("Lesson_8_EF.Models.Entities.Concrets.Student", b =>
@@ -123,7 +123,7 @@ namespace Lesson_8_EF.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("Lesson_8_EF.Models.Entities.Concrets.Teacher", b =>
@@ -157,7 +157,7 @@ namespace Lesson_8_EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers");
+                    b.ToTable("Teachers", (string)null);
                 });
 
             modelBuilder.Entity("StudentTeacher", b =>
@@ -172,7 +172,7 @@ namespace Lesson_8_EF.Migrations
 
                     b.HasIndex("TeachersId");
 
-                    b.ToTable("StudentTeacher");
+                    b.ToTable("StudentTeacher", (string)null);
                 });
 
             modelBuilder.Entity("Lesson_8_EF.Models.Entities.Concrets.Group", b =>

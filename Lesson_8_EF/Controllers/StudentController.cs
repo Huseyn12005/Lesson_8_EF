@@ -35,7 +35,7 @@ public class StudentController : Controller
                 Id = st.Id,
                 Name = st.Name,
                 Surname = st.Surname,
-                FatherName = st.FateherName,
+                FateherName = st.FateherName,
             };
             studentsVM.Add(newSt);
         }
@@ -63,8 +63,8 @@ public class StudentController : Controller
 
                 Name = viewModel.Name,
                 Surname = viewModel.Surname,
-                FateherName = viewModel.FatherName,
-                CreatedDate = DateTime.Now,
+                FateherName = viewModel.FateherName,
+                CreateDate = DateTime.Now,
             };
 
             await _stRepo!.AddAsync(student);
@@ -96,22 +96,22 @@ public class StudentController : Controller
 
 
     [HttpGet]
-    public async Task<IActionResult> Update(int id)
+    public async Task<IActionResult> UpdateStudent(int id)
     {
         var entity = await _stRepo?.GetByIdAsync(id)!;
         return View(entity);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Update(AddStViewModel stVM, int id)
+    public async Task<IActionResult> UpdateStudent(AddStViewModel stVM, int id)
     {
 
         var entity = await _stRepo?.GetByIdAsync(id)!;
 
         entity.Name = stVM.Name;
         entity.Surname = stVM.Surname;
-        entity.FateherName = stVM.FatherName;
-        entity.UpdatedDate = DateTime.Now;
+        entity.FateherName = stVM.FateherName;
+        entity.UpdateDate = DateTime.Now;
 
 
         await _stRepo!.UpdateAsync(entity);
