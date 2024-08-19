@@ -29,17 +29,17 @@ public class TeacherController : Controller
 
 
     [HttpPost]
-    public async Task<IActionResult> Add(TeacherVM vM)
+    public async Task<IActionResult> Add(TeacherVM TeacherViewModel)
     {
         if (ModelState.IsValid)
         {
 
             var teacher = new Teacher()
             {
-                Name = vM.Name,
-                Surname = vM.Surname,
-                FateherName = vM.FateherName,
-                Salary = vM.Salary,
+                Name = TeacherViewModel.Name,
+                Surname = TeacherViewModel.Surname,
+                FateherName = TeacherViewModel.FateherName,
+                Salary = TeacherViewModel.Salary,
             };
 
 
@@ -48,7 +48,7 @@ public class TeacherController : Controller
             return RedirectToAction("AllTeachers");
 
         }
-        return View(vM);
+        return View(TeacherViewModel);
     }
 
     [HttpGet]
@@ -99,15 +99,15 @@ public class TeacherController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpdateTeacher(TeacherVM stVM, int id)
+    public async Task<IActionResult> UpdateTeacher(TeacherVM teacher, int id)
     {
 
         var entity = await _teacherRepo?.GetByIdAsync(id)!;
 
-        entity.Name = stVM.Name;
-        entity.Surname = stVM.Surname;
-        entity.FateherName = stVM.FateherName;
-        entity.Salary = stVM.Salary;
+        entity.Name = teacher.Name;
+        entity.Surname = teacher.Surname;
+        entity.FateherName = teacher.FateherName;
+        entity.Salary = teacher.Salary;
         entity.UpdateDate = DateTime.Now;
 
 

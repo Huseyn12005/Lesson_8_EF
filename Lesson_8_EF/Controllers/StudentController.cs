@@ -54,16 +54,16 @@ public class StudentController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Add(AddStViewModel viewModel)
+    public async Task<IActionResult> Add(AddStViewModel StudentviewModel)
     {
         if (ModelState.IsValid)
         {
             var student = new Student()
             {
 
-                Name = viewModel.Name,
-                Surname = viewModel.Surname,
-                FateherName = viewModel.FateherName,
+                Name = StudentviewModel.Name,
+                Surname = StudentviewModel.Surname,
+                FateherName = StudentviewModel.FateherName,
                 CreateDate = DateTime.Now,
             };
 
@@ -72,7 +72,7 @@ public class StudentController : Controller
             return RedirectToAction("AllStudents");
         }
 
-        return View(viewModel);
+        return View(StudentviewModel);
     }
 
 
@@ -103,14 +103,14 @@ public class StudentController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpdateStudent(AddStViewModel stVM, int id)
+    public async Task<IActionResult> UpdateStudent(AddStViewModel student, int id)
     {
 
         var entity = await _stRepo?.GetByIdAsync(id)!;
 
-        entity.Name = stVM.Name;
-        entity.Surname = stVM.Surname;
-        entity.FateherName = stVM.FateherName;
+        entity.Name = student.Name;
+        entity.Surname = student.Surname;
+        entity.FateherName = student.FateherName;
         entity.UpdateDate = DateTime.Now;
 
 
